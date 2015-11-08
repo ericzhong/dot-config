@@ -1,9 +1,7 @@
 
 let mapleader=","
 
-"===================================
-" Plugins
-"===================================
+"================ Plugins ==================
 
 "Vundle
 set nocompatible              " be iMproved, required
@@ -15,44 +13,71 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'ervandew/supertab'
-Plugin 'fs111/pydoc.vim'
-Plugin 'gregsexton/gitv'
+Plugin 'honza/vim-snippets'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
-Plugin 'kshenoy/vim-signature'
-Plugin 'mileszs/ack.vim'
-Plugin 'msanders/snipmate.vim'
-Plugin 'reinh/vim-makegreen'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'sjl/gundo.vim'
 Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-surround'
 Plugin 'vim-scripts/TaskList.vim'
 Plugin 'vim-scripts/pep8'
-Plugin 'wincent/command-t'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
-"NerdTree
-nnoremap <silent> <F3> :NERDTreeTabsToggle<CR>
-inoremap <silent> <F3> <Esc>:NERDTreeTabsToggle<CR>
+"jedi-vim
+" ,d     " goto define
+" ,r     " rename
+let g:jedi#goto_assignments_command = "<leader>a"
+let g:jedi#documentation_command = "K"
+let g:jedi#usages_command = "<leader>u"
+"let g:jedi#completions_command = "<C-Space>"
+
+
+"easymotion
+" ,,w     " jump word
+" ,,W     " jump word
+" ,,b     " jump back word
+" ,,B     " jump back word
+nmap <leader><leader>2 <Plug>(easymotion-s2)|      " search 2-char
+nmap <leader><leader>n <Plug>(easymotion-sn)|      " search n-char
+
+
+"nerdtree
+nmap <F3> :NERDTreeTabsToggle<CR>
+imap <F3> <Esc>:NERDTreeTabsToggle<CR>
+
 
 "TaskList
 map <leader>td <Plug>TaskList
 
+
 "Gundo
 map <leader>g :GundoToggle<CR>
 
-"Pep8
+
+"Pep9
 let g:pep8_map='<leader>8'
 
-"SuperTab
-au FileType python set omnifunc=pythoncomplete#Complete
-let g:SuperTabDefaultCompletionType = "context"
-set completeopt=menuone,longest,preview
+
+"CtrlP
+" c-p          " find
+" c-f,c-b      " switch between modes
+" c-d          " switch between file/path
+" c-r          " switch regex
+
+
+"vim-eunuch
+" :Remove|Move|Rename|Chmod|Mkdir|Find|Locate|Wall|SudoWrite|SudoEdit 
+
+
+"surround
+" ysiw         " wrap word
+" yss          " wrap line
+" cs           " change
+" ds           " delete
+" S            " wrap (visual mode)
 
 "=====================================================
 
@@ -65,7 +90,6 @@ endif
 "switch buffer without save
 "set hidden
 
-"syntax highlight
 syntax on
 filetype on
 filetype plugin indent on
@@ -82,19 +106,13 @@ set shiftwidth=4
 set smartindent
 
 "Ex-modes
-nnoremap Q <nop>
+nmap Q <nop>
 
 "Tab
-nnoremap <silent> <A-j>  :tabn<CR>
-nnoremap <silent> <A-k>  :tabp<CR>
-nnoremap <silent> <A-h>  :tabfirst<CR>
-nnoremap <silent> <A-l>  :tablast<CR>
-nnoremap <silent> <C-t>  :tabnew<CR>
-inoremap <silent> <A-j>  <Esc>:tabn<CR>
-inoremap <silent> <A-k>  <Esc>:tabp<CR>
-inoremap <silent> <A-h>  <Esc>:tabfirst<CR>
-inoremap <silent> <A-l>  <Esc>:tablast<CR>
-inoremap <silent> <C-t>  <Esc>:tabnew<CR>
+nmap <C-n>  :tabp<CR>
+nmap <C-m>  :tabn<CR>
+nmap <C-t>  :tabnew<CR>
+nmap <C-c>  :tabclose<CR>
 
 "Explore
 let g:netrw_liststyle=3
@@ -112,4 +130,7 @@ map <c-k> <c-w>k
 map <c-l> <c-w>l
 map <c-h> <c-w>h
 
+"paste selected
+xnoremap p pgvy
 
+nnoremap ; :
