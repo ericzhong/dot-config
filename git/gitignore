@@ -1,0 +1,19 @@
+# MAC
+.DS_Store
+
+# Python
+*.pyc
+
+# Vim
+*.swp
+
+# PyCharm
+.idea/
+
+# Django
+migrations
+*.sqlite3
+*.mo
+
+# bower
+bower_components
