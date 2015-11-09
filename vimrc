@@ -134,3 +134,6 @@ map <c-h> <c-w>h
 xnoremap p pgvy
 
 nnoremap ; :
+
+"search in selected text
+vmap <C-_> <Esc>/\%V|        " C-/
