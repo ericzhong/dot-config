@@ -15,5 +15,5 @@ migrations
 *.sqlite3
 *.mo
 
-# bower
+# Bower
 bower_components
