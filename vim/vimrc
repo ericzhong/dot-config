@@ -90,20 +90,8 @@ endif
 "switch buffer without save
 "set hidden
 
-syntax on
-filetype on
-filetype plugin indent on
-
-"tabstop
-set ts=4
-set expandtab
-
 "line number
 set nu
-
-"auto indent
-set shiftwidth=4
-set smartindent
 
 "Ex-modes
 nmap Q <nop>
@@ -137,3 +125,19 @@ nnoremap ; :
 
 "search in selected text
 vmap <C-_> <Esc>/\%V|        " C-/
+
+"================ Indent ==================
+
+"tabstop
+set ts=4
+
+"auto indent
+set shiftwidth=4
+set smartindent
+
+syntax on
+filetype on
+filetype plugin indent on
+
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
